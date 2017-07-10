@@ -1,0 +1,29 @@
+<mvc:View controllerName="demoChart.controller.S0" xmlns:viz="sap.viz.ui5.controls" xmlns:data="sap.viz.ui5.data"
+	xmlns:feed="sap.viz.ui5.controls.common.feeds" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+	<App>
+		<pages>
+			<Page title="{i18n>title}">
+				<content>
+					<viz:VizFrame vizType="line" vizProperties="{view>/chart/vizProperties}" vizScales="{view>/chart/vizScales}" width="100%" height="100%" selectData="onSelectData">
+						<viz:dataset>
+							<data:FlattenedDataset data="{/dataset/data}">
+								<data:dimensions>
+									<data:DimensionDefinition name="periodo" value="{0}" dataType="date"></data:DimensionDefinition>
+								</data:dimensions>
+								<data:measures>
+									<data:MeasureDefinition name="valor" value="{1}"></data:MeasureDefinition>
+									<data:MeasureDefinition name="media" value="1.78"></data:MeasureDefinition>
+								</data:measures>
+							</data:FlattenedDataset>
+						</viz:dataset>
+						<viz:feeds>
+							<feed:FeedItem uid="categoryAxis" type="Dimension" values="periodo"></feed:FeedItem>
+							<feed:FeedItem uid="valueAxis" type="Measure" values="valor"></feed:FeedItem>
+							<feed:FeedItem uid="valueAxis" type="Measure" values="media"></feed:FeedItem>
+						</viz:feeds>
+					</viz:VizFrame>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
